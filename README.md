@@ -26,6 +26,7 @@ Obtain an account on BioHPC, then add yourself to a reservation or make a reserv
 Then:
 
 - log on to the reserved node (via SSH -- preferred -- or VNC)
+  - if using SSH: open a terminal (on Mac or Windows), and type "`ssh (NETID)@cbsuecco08.biohpc.cornell.edu`" (where `cbsuecco08` happens to be the reserved node)
 - open a terminal (if on VNC)
 - `cd /workdir` because that's where you need to run Docker
 - Create a directory with your netid: `mkdir (NETID)` 
