@@ -1,0 +1,31 @@
+name: Compile Analysis
+on: 
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
+  
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skipci]')"
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+      - name: Make executable
+        run: "chmod +x ./build.sh"
+      # Runs a set of commands using the runners shell
+      - name: Run docker for R 
+        uses: docker://rocker/verse:latest
+        with:
+          args: "/github/workspace/build.sh "
+      # send it to gh-pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.8.0
+        with:
+           github_token: ${{ secrets.GITHUB_TOKEN }}
+           publish_dir: .
+           user_name: 'Github Action Bot'
+           user_email: 'lars.vilhuber@cornell.edu'
+           publish_branch: gh-pages 
+           keep_files: true
