@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -ev 
+
 Rscript build.R
 
 # Rscript -e "rmarkdown::render('analysis.Rmd')"
