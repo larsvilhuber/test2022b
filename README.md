@@ -31,6 +31,8 @@ Then:
 - `cd /workdir` because that's where you need to run Docker
 - Create a directory with your netid: `mkdir (NETID)` 
 - Change directory into the new directory:  `cd (NETID)`
+- Type `pwd` to be sure: `pwd` should show something like `/workdir/(NETID)/`
 - Clone the git repository: `git clone https://github.com/larsvilhuber/test2022b.git`
 - Change directory into the newly created `test2022b` directory
+- Type `pwd` to be sure: `pwd` should show something like `/workdir/(NETID)/test2022b`
 - Run the command line above, replacing `docker` with `docker1`
